@@ -56,8 +56,13 @@ def inference(
 
     # Collect data
     # Tricky workaround to avoid random mistery transpose when loading with 'Image'.
-    image = cv2.imread(img_path)
-    image = Image.fromarray(image).convert("RGB")
+    if img_path.endswith(".gif"):
+        image = Image.open(img_path)
+    else:
+        image = cv2.imread(img_path)
+        image = Image.fromarray(image)
+
+    image = image.convert("RGB")
     image = np.array(resize_image(image))
     win_size = input_shape[1]
     data = []
