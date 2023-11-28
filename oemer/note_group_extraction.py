@@ -365,7 +365,7 @@ def extract() -> Tuple[List[NoteGroup], ndarray]:
     logger.debug("Analyzing stem direction")
     groups, group_map = parse_stem_direction(groups, group_map)
 
-    logger.debug("Instanitiating note groups")
+    logger.debug("Instantiating note groups")
     groups, group_map = gen_groups(groups, group_map)  # type: ignore
 
     logger.debug("Post check notes in groups")
@@ -420,7 +420,7 @@ if __name__ == "__main__":
     a_groups, a_map = group_noteheads()
     logger.info("Analyzing stem direction")
     b_groups, b_map = parse_stem_direction(a_groups, a_map)
-    logger.info("Instanitiating note groups")
+    logger.info("Instantiating note groups")
     groups, c_map = gen_groups(b_groups, b_map)
 
     bboxes = [g.bbox for g in groups]

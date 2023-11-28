@@ -306,7 +306,7 @@ def fill_hole(region: ndarray) -> ndarray:
 def gen_notes(bboxes: List[ndarray], symbols: ndarray) -> List[NoteHead]:
     notes = []
     for bbox in bboxes:
-        # Instanitiate notehead.
+        # Instantiate notehead.
         nn = NoteHead()
         nn.bbox = typing.cast(BBox, bbox)
 
@@ -461,7 +461,7 @@ def extract(
             solid_box.append(box)
 
     # Assign notes with extracted infromation
-    logger.info("Instanitiating notes")
+    logger.info("Instantiating notes")
     solid_notes = gen_notes(solid_box, symbols)  # type: ignore
     hollow_notes = gen_notes(hollow_box, symbols)  # type: ignore
 
