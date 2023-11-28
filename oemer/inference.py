@@ -55,10 +55,9 @@ def inference(
         output_shape = metadata['output_shape']
 
     # Collect data
-    # Tricky workaround to avoid random mistery transpose when loading with 'Image'.
-    if img_path.endswith(".gif"):
-        image = Image.open(img_path)
-    else:
+    image = Image.open(img_path)
+    if "GIF" != image.format:
+        # Tricky workaround to avoid random mistery transpose when loading with 'Image'.
         image = cv2.imread(img_path)
         image = Image.fromarray(image)
 

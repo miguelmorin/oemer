@@ -142,10 +142,11 @@ def extract(args: Namespace) -> str:
             pickle.dump(data, open(pkl_path, "wb"))
 
     # Load the original image, resize to the same size as prediction.
-    if not str(img_path).endswith(".gif"):
+    image = Image.open(str(img_path))
+    if "GIF" != image.format:
         image = cv2.imread(str(img_path))
     else:
-        gif_image = Image.open(str(img_path)).convert('RGB')
+        gif_image = image.convert('RGB')
         gif_image = np.array(gif_image)
         image = gif_image[:, :, ::-1].copy()
 
